@@ -10,7 +10,6 @@ end
 # Database
 
 require 'data_mapper'
-require 'CGI'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db")
 
@@ -61,7 +60,7 @@ get '/' do
 end
 
 post '/create_entry' do
-  entry = Entry.create(:text => CGI.escapeHTML(params[:suggestion]))
+  entry = Entry.create(:text => CGI::escapeHTML(params[:suggestion]))
   entry.vote(request.ip)
   redirect to "/#suggestion-#{entry.id}"
 end
