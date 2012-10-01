@@ -5,7 +5,7 @@ require 'escape_utils'
 # Config
 
 configure do
-  set :block_repeated_votes, ENV['BLOCK_REPEAT'] || true
+  set :block_repeated_votes, (ENV['BLOCK_REPEAT'] != "false") || true
 end
 
 # Database
