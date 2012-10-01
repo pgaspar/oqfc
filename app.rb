@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'escape_utils'
 
 # Config
 
@@ -60,7 +61,7 @@ get '/' do
 end
 
 post '/create_entry' do
-  entry = Entry.create(:text => CGI::escapeHTML(params[:suggestion]))
+  entry = Entry.create(:text => EscapeUtils.escape_html(params[:suggestion]))
   entry.vote(request.ip)
   redirect to "/#suggestion-#{entry.id}"
 end

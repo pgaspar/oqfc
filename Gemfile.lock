@@ -56,6 +56,7 @@ GEM
       data_objects (= 0.10.9)
     do_sqlite3 (0.10.9)
       data_objects (= 0.10.9)
+    escape_utils (0.2.4)
     fastercsv (1.5.5)
     json (1.7.5)
     json_pure (1.7.5)
@@ -79,5 +80,6 @@ DEPENDENCIES
   data_mapper
   dm-postgres-adapter
   dm-sqlite-adapter
+  escape_utils
   pg
   sinatra
