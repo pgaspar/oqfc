@@ -1,0 +1,79 @@
+body {
+	background: #80d2f1;
+}
+
+h1, h2, h3 {
+    font-family: 'Amaranth', sans-serif;
+}
+
+.hero-unit {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	margin: 0;
+	background-color: #80d2f1;
+}
+.hero-unit .hero-unit-outer {
+	display: table;
+	text-align: center;
+	width: 100%;
+}
+.hero-unit .hero-unit-inner {
+	display: table-cell;
+	vertical-align: middle;
+	height: 600px;
+}
+.hero-unit .hero-unit-inner h1 {
+	margin-bottom: 36px;
+}
+.hero-unit .hero-unit-inner input[type=text] {
+	font-size: 26px;
+	line-height: 36px;
+	padding: 18px;
+	height: 36px;
+	width: 50%;
+}
+.hero-unit .hero-unit-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding-bottom: 18px;
+}
+.hero-unit .hero-unit-footer h3 {
+	margin-bottom: 0px;
+}
+.hero-unit .hero-unit-footer h3 a {
+	color: #333;
+}
+.hero-unit .hero-unit-footer .suggestions-arrow {
+	font-size: 54px;
+	line-height: 54px;
+}
+
+#suggestions {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	margin-top: 36px;
+}
+#suggestions td {
+	border-color: lightblue;
+}
+#suggestions .suggestion-votes, #suggestions p {
+	font-size: 22px;
+	line-height: 27px;
+	text-align: center;
+	font-weight: bold;
+}
+#suggestions > p {
+	font-size: 18px;
+	font-weight: normal;
+}
+#suggestions .btn {
+	font-weight: bold;
+}
