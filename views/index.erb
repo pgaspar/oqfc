@@ -1,46 +1,18 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-
-    <!-- Meta Tags -->
-    <title>O que falta em Coimbra?</title>
-    <meta name="description" content="Uma experiência social.">
-    <meta name="keywords" content="coimbra" /> 
-    <meta name="robots" content="index,follow" />
-    <meta property="og:image" content="/img/logo.png"/>
-
-    <!-- CSS -->
-    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="css/main.css" media="screen" rel="stylesheet" type="text/css" />
-
-    <!-- JavaScript -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/default.js"></script>
-
-    <!-- Other -->
-    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Amaranth:400,700' rel='stylesheet' type='text/css'> 
-
-  </head>
-  <body>
-
-    <div class="hero-unit">
-        <div class="hero-unit-outer">
-            <div class="hero-unit-inner">
-                <h1>O que falta em Coimbra?</h1>
-                <form method="post" action="/create_entry">
-                    <input type="text" id="suggestion" name="suggestion" placeholder="Deixa a tua sugestão..." />
-                </form>
-            </div>
-        </div>
-        <div class="hero-unit-footer">
-            <h3><a id="go-to-suggestions" href="#suggestions">ou vota nas sugestões submetidas</a></h3>
-            <span class="suggestions-arrow">&darr;</span>
+<div class="hero-unit">
+    <div class="hero-unit-outer">
+        <div class="hero-unit-inner">
+            <h1>O que falta em Coimbra?</h1>
+            <form id="suggestion-form" method="post" action="/create_entry">
+                <input type="text" id="suggestion" name="suggestion" placeholder="Deixa a tua sugestão..." />
+            </form>
+            <p id="warning">A sugestão deve ter entre 1 e 400 caracteres.</p>
         </div>
     </div>
+    <div class="hero-unit-footer">
+        <h3><a id="go-to-suggestions" href="#suggestions">ou vota nas sugestões submetidas</a></h3>
+        <span class="suggestions-arrow">&darr;</span>
+    </div>
+</div>
 <div id="suggestions">
     <div class="container">
         <div class="row">
@@ -69,5 +41,3 @@
         </div>
     </div>
 </div>
-  </body>
-</html>

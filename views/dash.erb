@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Meta Tags -->
+    <title>Dashboard</title>
+    
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css/dash.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <!-- JavaScript -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Other -->
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Amaranth:400,700' rel='stylesheet' type='text/css'> 
+
+  </head>
+  <body>
+
+    <h1>OQFC Dashboard</h1>
+
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th><a href="/dash?order=text">Suggestion</a></th>
+          <th><a href="/dash?order=vote_count">Votes</a></th>
+          <th><a href="/dash?order=created_at">Created_at</a></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for entry in @entries %>
+          <tr>
+            <td><%= entry.text %></td>
+            <td><%= entry.vote_count %></td>
+            <td><%= entry.created_at %></td>
+            <td>
+              <form method="post" action="/dash/remove_entry">
+                <input type="hidden" name="entry_id" value="<%= entry.id %>" />
+                <input type="hidden" name="order" value="<%= params[:order] %>" />
+                <input type="hidden" name="page" value="<%= params[:page] %>" />
+                <input type="submit" value="Remove" onclick="return confirm('Are you sure?')" />
+               </form>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= @entries.pager.to_html("/dash?order=#{params[:order]}") %>
+
+  </body>
+</html>

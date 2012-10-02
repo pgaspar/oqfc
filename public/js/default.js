@@ -5,4 +5,16 @@ jQuery(function ($) {
     return false;
   });
 
+
+  $("#suggestion-form").submit(function() {
+    var len = $("#suggestion").val().length;
+
+    if ( len < 1 || len > 400 ) {
+      $("#warning").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 150);
+      return false;
+    } else {
+      $("#warning").css("visibility", "hidden");
+    }
+  });
+
 });
