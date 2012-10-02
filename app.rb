@@ -28,7 +28,7 @@ class Entry
   include DataMapper::Resource
 
   property :id,           Serial
-  property :text,         Text, :length => 1..400
+  property :text,         Text, :length => 1..300
   property :vote_count,   Integer, :default => 0
 
   property :created_at,   DateTime
@@ -93,7 +93,7 @@ end
 protect do
 
   get '/dash' do
-    @entries = Entry.page(params[:page], :per_page => 15, :order => [ (params[:order] ? params[:order].to_sym : :vote_count).desc, :created_at.desc ])
+    @entries = Entry.page(params[:page], :per_page => 15, :order => [ (params[:order].try(:any?) ? params[:order].to_sym : :vote_count).desc, :created_at.desc ])
     erb :dash, :layout => false
   end
 

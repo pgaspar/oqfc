@@ -70,6 +70,7 @@ h1, h2, h3 {
 }
 #suggestions td {
 	border-color: lightBlue;
+	word-break: break-all;
 }
 #suggestions .suggestion-votes, #suggestions p {
 	font-size: 22px;
