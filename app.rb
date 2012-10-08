@@ -93,7 +93,7 @@ end
 protect do
 
   get '/dash' do
-    @entries = Entry.page(params[:page], :per_page => 15, :order => [ (params[:order].try(:any?) ? params[:order].to_sym : :vote_count).desc, :created_at.desc ])
+    @entries = Entry.page(params[:page], :per_page => 15, :order => [ ((params[:order].nil? || params[:order].empty?) ? :vote_count : params[:order].to_sym).desc, :created_at.desc ])
     erb :dash, :layout => false
   end
 
