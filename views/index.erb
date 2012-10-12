@@ -23,7 +23,7 @@
                         <% @entries.each do |entry| %>
                         <tr id="suggestion-<%= entry.id %>">
                             <td class="suggestion-text"><h2><a href="/entry/<%= entry.id %>"><%= entry.text %></a></h2>
-                                <p class="comment-count"><small><fb:comments-count href=http://oquefaltaemcoimbra.pt/entry/<%= entry.id %>>0</fb:comments-count> comentários</small></p>
+                                <p class="comment-count"><small><fb:comments-count href=http://oquefaltaemcoimbra.pt/entry/<%= entry.id %>>0</fb:comments-count> <span class="cm-label">comentários</span></small></p>
                             </td>
                             <td class="suggestion-votes">
                                 <span><%= entry.vote_count %></span><br/>

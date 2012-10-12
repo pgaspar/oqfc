@@ -17,4 +17,14 @@ jQuery(function ($) {
     }
   });
 
+  setTimeout(function(){
+    $('.comment-count').each(function() {
+      var count = $('.fb_comments_count', this).text();
+
+      if (count == "1") {
+        $('.cm-label', this).html('comentário');
+      }
+    });
+  }, 2000);
+
 });
