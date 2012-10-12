@@ -48,7 +48,7 @@ h1, h2, h3 {
 .hero-unit .hero-unit-footer h3 {
 	margin-bottom: 0px;
 }
-.hero-unit .hero-unit-footer h3 a {
+a, a:hover {
 	color: #333;
 }
 .hero-unit .hero-unit-footer .suggestions-arrow {
@@ -68,11 +68,20 @@ h1, h2, h3 {
 	width: 100%;
 	margin-top: 36px;
 }
+#suggestions table {
+	table-layout: fixed;
+}
 #suggestions td {
 	border-color: lightBlue;
-	word-break: break-all;
 }
-#suggestions .suggestion-votes, #suggestions p {
+#suggestions .suggestion-text {
+	width: 725px;
+	overflow: hidden;
+}
+#suggestions .suggestion-votes {
+	width: 70px;
+}
+.suggestion-votes, #suggestions .suggestion-votes, .suggestion-votes p {
 	font-size: 22px;
 	line-height: 27px;
 	text-align: center;
@@ -84,4 +93,57 @@ h1, h2, h3 {
 }
 #suggestions .btn {
 	font-weight: bold;
+}
+
+.btn-fixed{
+	float:left;
+	background:rgba(255,255,255, 0);
+	color:black;
+	padding:12px;
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	border:1px solid black;
+	z-index: 10;
+}
+
+.btn-fixed:hover{
+	background:rgba(0,0,0, 0.2);
+	color:black;
+}
+
+
+#entry {
+	position: relative;
+	width: 685px;
+	text-align: left;
+	background-color: white;
+	padding: 27px 36px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background-color: white;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#entry-text {
+	margin-right: 70px;
+	min-height: 71px;
+}
+
+#entry h2 {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+#entry small {
+	font-size: 14px;
+	color: gray;
+}
+
+#entry-votes {
+	position: absolute;
+	top: 36px;
+	right: 36px;
 }

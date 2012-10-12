@@ -1,0 +1,38 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=289476237730343";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<a href="/" class="btn-fixed">« Outras sugestões</a>
+<div class="hero-unit">
+    <div class="hero-unit-outer">
+        <div class="hero-unit-inner">
+            <h1><a href="/">O que falta em Coimbra?</a></h1>
+
+            <div id="entry" class="container">
+              <div id="entry-text">
+                <h2><%= @entry.text %></h2>
+                <% if @entry.created_at %>
+                  <p><small>Sugerido em <%= @entry.created_at.strftime("%d/%m/%Y") %></small></p>
+                <% end %>
+              </div>
+              <div  id="entry-votes" class="suggestion-votes">
+                <span><%= @entry.vote_count %></span><br/>
+                <form method="post" action="/vote">
+                    <input type="hidden" name="entry_id" value="<%= @entry.id %>">
+                    <input type="hidden" name="vote_page" value="true">
+                    <input type="submit" value="Vota" class="btn btn-mini" <%= 'disabled title="Obrigado pelo teu voto!"' if @entry.already_voted?(request.ip) %>>
+                </form>
+              </div>
+                <hr>
+                <div class="fb-comments" data-href="http://oquefaltaemcoimbra.pt/entry/<%= @entry.id %>" data-num-posts="10" data-width="613"></div>
+            </div>
+
+        </div>
+    </div>
+</div>

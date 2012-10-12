@@ -22,10 +22,10 @@
                     <tbody>
                         <% @entries.each do |entry| %>
                         <tr id="suggestion-<%= entry.id %>">
-                            <td class="suggestion-text"><h2><%= entry.text %></h2></td>
+                            <td class="suggestion-text"><h2><a href="/entry/<%= entry.id %>"><%= entry.text %></a></h2></td>
                             <td class="suggestion-votes">
                                 <span><%= entry.vote_count %></span><br/>
-                                <form method="post" action="vote">
+                                <form method="post" action="/vote">
                                     <input type="hidden" name="entry_id" value="<%= entry.id %>">
                                     <input type="submit" value="Vota" class="btn btn-mini" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %>>
                                 </form>

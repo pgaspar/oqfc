@@ -85,7 +85,16 @@ end
 post '/vote' do
   entry = Entry.get!(params[:entry_id])
   entry.vote(request.ip)
-  redirect to "/#suggestion-#{entry.id}"
+  if params[:vote_page]
+    redirect to "/entry/#{entry.id}"
+  else
+    redirect to "/#suggestion-#{entry.id}"
+  end
+end
+
+get '/entry/:id' do
+  @entry = Entry.get!(params[:id])
+  erb :entry
 end
 
 # Dashboard
