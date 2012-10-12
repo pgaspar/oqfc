@@ -94,6 +94,9 @@ a, a:hover {
 #suggestions .btn {
 	font-weight: bold;
 }
+#suggestions .comment-count {
+	color: rgba(0,0,0,0.5);
+}
 
 .btn-fixed{
 	float:left;
