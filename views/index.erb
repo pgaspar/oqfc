@@ -29,7 +29,7 @@
                                 <span><%= entry.vote_count %></span><br/>
                                 <form method="post" action="/vote">
                                     <input type="hidden" name="entry_id" value="<%= entry.id %>">
-                                    <input type="submit" value="Vota" class="btn btn-mini" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %>>
+                                    <input type="submit" value="Vota" class="btn btn-mini" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> onClick="_gaq.push(['_trackEvent', 'Vote', 'UpVote', 'Main Page']);">
                                 </form>
                             </td>
                         </tr>
