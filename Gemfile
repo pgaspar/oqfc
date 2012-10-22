@@ -8,6 +8,7 @@ gem 'sinatra-basic-auth'
 gem 'dm-pager'
 gem 'dm-validations'
 gem 'dm-constraints'
+gem 'sinatra-partial'
 
 group :production do
   gem 'pg'

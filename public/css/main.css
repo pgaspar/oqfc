@@ -80,6 +80,10 @@ a, a:hover {
 }
 #suggestions .suggestion-votes {
 	width: 70px;
+	vertical-align: middle;
+}
+.suggestion-votes form {
+	margin: 0px;
 }
 .suggestion-votes, #suggestions .suggestion-votes, .suggestion-votes p {
 	font-size: 22px;
@@ -149,4 +153,48 @@ a, a:hover {
 	position: absolute;
 	top: 36px;
 	right: 36px;
+}
+button i {
+	font-size: 14px;
+	padding: 8px 4px;
+}
+button i.icon-caret-up {
+	color: #57B725;
+}
+button i.icon-caret-down {
+	color: #E07334;
+}
+button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
+	color: whiteSmoke;
+}
+
+#separator {
+	height: 1px;
+	margin-top: 30px;
+	position: relative;
+	margin-bottom: 30px;
+	padding: 0px 10px;
+	background-color: lightBlue;
+}
+#separator > div {
+	background-color: #80d2f1;
+	cursor: pointer;
+	color: rgba(0,0,0,0.5);
+	font-size: 11px;
+	position: absolute;
+	left: 427px;
+	top: -10px;
+	padding: 0px 5px;
+}
+#separator i {
+	margin-left: 3px;
+}
+#separator > div:hover {
+	text-decoration: underline;
+}
+#burried-entries {
+	display: none;
+}
+#burried-entries tr:first-child td {
+	border-top: none;
 }

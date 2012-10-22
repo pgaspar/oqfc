@@ -18,24 +18,21 @@
         <div class="row">
             <div class="span10 offset1">
                 <% if @entries.any? %>
-                <table class="table">
-                    <tbody>
-                        <% @entries.each do |entry| %>
-                        <tr id="suggestion-<%= entry.id %>">
-                            <td class="suggestion-text"><h2><a href="/entry/<%= entry.id %>"><%= entry.text %></a></h2>
-                                <p class="comment-count"><small><fb:comments-count href=http://oquefaltaemcoimbra.pt/entry/<%= entry.id %>>0</fb:comments-count> <span class="cm-label">comentários</span></small></p>
-                            </td>
-                            <td class="suggestion-votes">
-                                <span><%= entry.vote_count %></span><br/>
-                                <form method="post" action="/vote">
-                                    <input type="hidden" name="entry_id" value="<%= entry.id %>">
-                                    <input type="submit" value="Vota" class="btn btn-mini" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> onClick="_gaq.push(['_trackEvent', 'Vote', 'UpVote', 'Main Page']);">
-                                </form>
-                            </td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <tbody>
+                            <%= partial(:entry, :collection => @entries) %>
+                        </tbody>
+                    </table>
+                
+                    <% if @burried_entries.any? %>
+                        <div id="separator"><div>Ver menos votados<i class="icon-caret-down"></i></div></div>
+                        
+                        <table class="table" id="burried-entries">
+                            <tbody>
+                                <%= partial(:entry, :collection => @burried_entries) %>
+                            </tbody>
+                        </table>
+                    <% end %>
                 <% else %>
                     <p>Ainda não foram submetidas sugestões. Porque não começas tu?</p>
                 <% end %>

@@ -22,13 +22,16 @@
   </head>
   <body>
 
-    <h1>OQFC Dashboard</h1>
+    <a href="/dash"><h1>OQFC Dashboard</h1></a>
 
     <table class="table table-condensed table-hover">
       <thead>
         <tr>
           <th><a href="/dash?order=text">Suggestion</a></th>
-          <th><a href="/dash?order=vote_count">Votes</a></th>
+          <th><a href="/dash?order=vote_score">Vote Score</a></th>
+          <th><a href="/dash?order=up_vote_count">Up Votes</a></th>
+          <th><a href="/dash?order=down_vote_count">Down Votes</a></th>
+          <th><a href="/dash?order=vote_count"># Votes</a></th>
           <th><a href="/dash?order=created_at">Created_at</a></th>
           <th></th>
         </tr>
@@ -37,6 +40,9 @@
         <% for entry in @entries %>
           <tr>
             <td><%= entry.text %></td>
+            <td><%= entry.vote_score %></td>
+            <td><%= entry.up_vote_count %></td>
+            <td><%= entry.down_vote_count %></td>
             <td><%= entry.vote_count %></td>
             <td><%= entry.created_at %></td>
             <td>
