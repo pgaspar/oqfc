@@ -1,3 +1,4 @@
+<% @responsive = true %>
 <% @page_desc = @entry.text %>
 
 <a href="/" class="btn btn-fixed"><i class="icon-chevron-left"></i>&nbsp;&nbsp;Outras sugestões</a>
@@ -17,7 +18,7 @@
                 <%= partial(:vote_box, :locals => { :entry => @entry, :entry_page => true }) %>
               </div>
                 <hr>
-                <div class="fb-comments" data-href="http://oquefaltaemcoimbra.pt/entry/<%= @entry.id %>" data-num-posts="15" data-width="613" data-mobile="false"></div>
+                <div class="fb-comments" data-href="http://oquefaltaemcoimbra.pt/entry/<%= @entry.id %>" data-num-posts="15" data-mobile="false"></div>
             </div>
 
         </div>

@@ -1,0 +1,36 @@
+@media (max-width:480px) {
+	.hero-unit .hero-unit-inner h1 {
+		font-size: 36px;
+	}
+	.hero-unit .hero-unit-inner input[type=text] {
+		width: 80%;
+		font-size: 16px;
+		line-height: 18px;
+		padding: 9px;
+		height: 18px;
+	}
+	.hero-unit .hero-unit-inner {
+		height: auto;
+	}
+	.hero-unit .hero-unit-footer h3 {
+		font-size: 18px;
+		line-height: 27px;
+	}
+	.hero-unit .hero-unit-footer .suggestions-arrow {
+		font-size: 36px;
+		line-height: 36px;
+	}
+
+	#suggestions .suggestion-text h2, #entry #entry-text h2 {
+		font-size: 18px;
+		line-height: 27px;
+	}
+
+	#entry {
+		padding: 18px 9px;
+	}
+
+	.btn-fixed {
+		padding: 4px 8px;
+	}
+}

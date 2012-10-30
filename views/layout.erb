@@ -1,4 +1,4 @@
-
+<% @responsive = true if @responsive.nil? %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,13 +10,19 @@
     <meta name="keywords" content="coimbra" /> 
     <meta name="robots" content="index,follow" />
     <meta property="og:image" content="http://oquefaltaemcoimbra.pt/img/logo.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
     <link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css" />
+    
     <link href="/css/font-awesome.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <% if @responsive %>
+      <!-- Responsive -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css" />
+      <link href="/css/main-responsive.css" media="screen" rel="stylesheet" type="text/css" />
+    <% end %>
 
     <!-- JavaScript -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
