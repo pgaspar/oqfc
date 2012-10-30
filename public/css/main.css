@@ -65,7 +65,8 @@ a, a:hover {
 #suggestions {
 	position: absolute;
 	top: 100%;
-	width: 100%;
+	left: 0;
+	right: 0;
 	margin-top: 36px;
 }
 #suggestions table {
@@ -75,7 +76,7 @@ a, a:hover {
 	border-color: lightBlue;
 }
 #suggestions .suggestion-text {
-	width: 725px;
+	width: inherit;
 	overflow: hidden;
 }
 #suggestions .suggestion-votes {
@@ -104,19 +105,12 @@ a, a:hover {
 
 .btn-fixed{
 	float:left;
-	background:rgba(255,255,255, 0);
-	color:black;
 	padding:12px;
 	position: absolute;
 	top: 12px;
 	left: 12px;
-	border:1px solid black;
 	z-index: 10;
-}
-
-.btn-fixed:hover{
-	background:rgba(0,0,0, 0.2);
-	color:black;
+	font-weight: bold;
 }
 
 
@@ -177,14 +171,19 @@ button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
 	background-color: lightBlue;
 }
 #separator > div {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -10px;
+	
+	text-align: center;
+}
+#separator > div > span {
 	background-color: #80d2f1;
 	cursor: pointer;
-	color: rgba(0,0,0,0.5);
-	font-size: 11px;
-	position: absolute;
-	left: 427px;
-	top: -10px;
-	padding: 0px 5px;
+	color: rgba(0,0,0,0.8);
+	font-size: 13px;
+	padding: 0px 10px;
 }
 #separator i {
 	margin-left: 3px;
@@ -197,4 +196,15 @@ button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
 }
 #burried-entries tr:first-child td {
 	border-top: none;
+}
+
+/* Responsive */
+
+@media (max-width:768px) {
+	.hero-unit .hero-unit-inner input[type=text] {
+		width: 80%;
+	}
+	.hero-unit .hero-unit-inner {
+		height: auto;
+	}
 }

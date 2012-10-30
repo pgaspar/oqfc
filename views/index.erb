@@ -16,7 +16,7 @@
 <div id="suggestions">
     <div class="container">
         <div class="row">
-            <div class="span10 offset1">
+            <div class="span12">
                 <% if @entries.any? %>
                     <table class="table">
                         <tbody>
@@ -25,7 +25,9 @@
                     </table>
                 
                     <% if @burried_entries.any? %>
-                        <div id="separator"><div>Ver menos votados<i class="icon-caret-down"></i></div></div>
+                        <div id="separator">
+                            <div><span>Ver menos votados<i class="icon-caret-down"></i></span></div>
+                        </div>
                         
                         <table class="table" id="burried-entries">
                             <tbody>
