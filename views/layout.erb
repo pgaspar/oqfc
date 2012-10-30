@@ -1,4 +1,3 @@
-<% @responsive = true if @responsive.nil? %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,12 +16,10 @@
     <link href="/css/font-awesome.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" />
 
-    <% if @responsive %>
-      <!-- Responsive -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/css/main-responsive.css" media="screen" rel="stylesheet" type="text/css" />
-    <% end %>
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/css/main-responsive.css" media="screen" rel="stylesheet" type="text/css" />
 
     <!-- JavaScript -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
