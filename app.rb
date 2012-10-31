@@ -104,7 +104,7 @@ post '/create_entry' do
 end
 
 post '/vote' do
-  entry = Entry.get!(params[:entry_id])
+  entry = Entry.get!(params[:entry_id]) rescue halt(404)
   entry.vote(request.ip, params[:up] != 'false')
   if params[:vote_page]
     redirect to "/entry/#{entry.id}"
@@ -114,7 +114,7 @@ post '/vote' do
 end
 
 get '/entry/:id' do
-  @entry = Entry.get!(params[:id])
+  @entry = Entry.get!(params[:id]) rescue halt(404)
   erb :entry
 end
 
@@ -128,8 +128,14 @@ protect do
   end
 
   post '/dash/remove_entry' do
-    Entry.get!(params[:entry_id]).destroy
+    Entry.get!(params[:entry_id]).destroy rescue halt(404)
     redirect to "/dash?order=#{params[:order]}&page=#{params[:page]}"
   end
 
+end
+
+# Errors
+
+not_found do
+  "<h1>Not Found.</h1>"
 end
