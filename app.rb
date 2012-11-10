@@ -39,9 +39,9 @@ class Entry
   property :vote_count,      Integer, :default => 0
   property :up_vote_count,   Integer, :default => 0
   property :down_vote_count, Integer, :default => 0
-  property :vote_score,      Integer, :default => 0
+  property :vote_score,      Integer, :default => 0, :index => true
 
-  property :created_at,   DateTime
+  property :created_at,   DateTime, :index => true
   property :update_at,    DateTime
   
   has n,   :votes,        :constraint => :destroy
