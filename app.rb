@@ -7,6 +7,8 @@ require 'sinatra/content_for'
 
 # Config
 
+use Rack::Session::Cookie
+
 configure do
   set :block_repeated_votes, (ENV['BLOCK_REPEAT'] != "false") if production?
   set :block_repeated_votes, true unless production?
@@ -65,10 +67,6 @@ class Entry
   def voted_down?(ip)
     not voted_up?(ip)
   end
-
-  def self.sorted
-    all(:order => [:vote_score.desc, :created_at.asc])
-  end
 end
 
 class Vote
@@ -87,11 +85,28 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+# Filters
+
+before '/' do
+  session[:order] = (params[:order] || session[:order] || 'score')
+  if session[:order] == 'recent'
+    @dm_order = [:created_at.desc]
+  else
+    session[:order] = 'score'
+    @dm_order = [:vote_score.desc, :created_at.asc]
+  end
+  redirect to '/#suggestions' if params[:order]
+end
+
 # Controllers
 
 get '/' do
-  @entries = Entry.all(:vote_score.gte => 0).sorted
-  @burried_entries = Entry.all(:vote_score.lt => 0).sorted
+  if session[:order] == 'recent'
+    @entries = Entry.all(:order => @dm_order)
+  else
+    @entries = Entry.all(:vote_score.gte => 0, :order => @dm_order)
+    @burried_entries = Entry.all(:vote_score.lt => 0, :order => @dm_order)
+  end
   erb :index
 end
 

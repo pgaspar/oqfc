@@ -18,13 +18,18 @@
         <div class="row">
             <div class="span12">
                 <% if @entries.any? %>
+                    <div class="sorting">
+                        Ordem:  
+                        <a href="/?order=score" <%= 'class="active"' if session[:order] == "score" %>>mais votados</a> | 
+                        <a href="/?order=recent" <%= 'class="active"' if session[:order] == "recent" %>>mais recentes</a>
+                    </div>
                     <table class="table">
                         <tbody>
-                            <%= partial(:entry, :collection => @entries) %>
+                            <%= partial(:entry, :collection => @entries, :locals => {:show_date => (session[:order] == "recent")}) %>
                         </tbody>
                     </table>
                 
-                    <% if @burried_entries.any? %>
+                    <% if @burried_entries.try(:any?) %>
                         <div id="separator">
                             <div><span>Ver menos votados<i class="icon-caret-down"></i></span></div>
                         </div>

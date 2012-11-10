@@ -17,16 +17,6 @@ jQuery(function ($) {
     }
   });
 
-  setTimeout(function(){
-    $('.comment-count').each(function() {
-      var count = $('.fb_comments_count', this).text();
-
-      if (count == "1") {
-        $('.cm-label', this).html('comentário');
-      }
-    });
-  }, 2000);
-
   $("#separator").click(function() {
     var icon = $(this).find("i");
     var opening = !$(this).hasClass("open");
@@ -47,7 +37,20 @@ jQuery(function ($) {
         $("#burried-entries").hide();  
       });
     }
-
   });
+
+  $(".sorting a.active").click(function() {
+    return false;
+  });
+
+  setTimeout(function(){
+    $('.comment-count').each(function() {
+      var count = $('.fb_comments_count', this).text();
+
+      if (count == "1") {
+        $('.cm-label', this).html('comentário');
+      }
+    });
+  }, 2000);
 
 });

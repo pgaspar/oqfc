@@ -200,3 +200,19 @@ button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
 #burried-entries tr:first-child td {
 	border-top: none;
 }
+.sorting {
+	float: right;
+	color: rgba(0,0,0,0.6);
+	font-size: 13px;
+	padding: 10px 0px 5px 0px;
+}
+.sorting a {
+	color: rgba(0,0,0,0.8);
+}
+.sorting a.active {
+	cursor: default;
+	font-weight: bold;
+}
+.sorting a.active:hover {
+	text-decoration: none;
+}
