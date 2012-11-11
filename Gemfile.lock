@@ -108,6 +108,7 @@ DEPENDENCIES
   dm-pager
   dm-postgres-adapter
   dm-sqlite-adapter
+  dm-types
   dm-validations
   escape_utils
   pg
