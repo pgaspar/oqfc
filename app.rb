@@ -42,7 +42,7 @@ class Entry
   property :down_vote_count, Integer, :default => 0
   property :vote_score,      Integer, :default => 0, :index => true
 
-  property :ips,          Csv, :default => []
+  property :ips,          Json, :default => []
 
   property :created_at,   DateTime, :index => true
   property :update_at,    DateTime
@@ -58,7 +58,7 @@ class Entry
   end
 
   def already_voted?(ip)
-    (settings.block_repeated_votes? && self.ips.count([ip]) != 0)
+    (settings.block_repeated_votes? && self.ips.count(ip) != 0)
   end
 
 end
