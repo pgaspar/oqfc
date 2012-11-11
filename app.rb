@@ -73,7 +73,7 @@ class Vote
   include DataMapper::Resource
 
   property :id,           Serial
-  property :ip,           String
+  property :ip,           String, :index => true
   property :up,           Boolean, :default => true
 
   property :created_at,   DateTime
