@@ -1,7 +1,7 @@
-<div class="hero-unit">
+<div class="hero-unit" style="background-color: <%= settings.background_color %>">
     <div class="hero-unit-outer">
         <div class="hero-unit-inner">
-            <h1>O que falta em Coimbra?</h1>
+            <h1>O que falta <%= settings.city_name %>?</h1>
             <form id="suggestion-form" method="post" action="/create_entry">
                 <input type="text" id="suggestion" name="suggestion" placeholder="Deixa a tua sugestão..." maxlength="301" />
             </form>
@@ -19,8 +19,8 @@
             <div class="span12">
                 <% if @entries.any? %>
                     <div class="sorting">
-                        Ordem:  
-                        <a href="/?order=score" <%= 'class="active"' if session[:order] == "score" %>>mais votados</a> | 
+                        Ordem:
+                        <a href="/?order=score" <%= 'class="active"' if session[:order] == "score" %>>mais votados</a> |
                         <a href="/?order=recent" <%= 'class="active"' if session[:order] == "recent" %>>mais recentes</a>
                     </div>
                     <table class="table">
@@ -28,15 +28,15 @@
                             <%= partial(:entry, :collection => @entries, :locals => {:show_date => (session[:order] == "recent")}) %>
                         </tbody>
                     </table>
-                
-                    <% if @burried_entries.try(:any?) %>
+
+                    <% if @buried_entries.try(:any?) %>
                         <div id="separator">
-                            <div><span>Ver menos votados<i class="icon-caret-down"></i></span></div>
+                            <div><span style="background-color: <%= settings.background_color %>">Ver menos votados<i class="icon-caret-down"></i></span></div>
                         </div>
-                        
-                        <table class="table" id="burried-entries">
+
+                        <table class="table" id="buried-entries">
                             <tbody>
-                                <%= partial(:entry, :collection => @burried_entries) %>
+                                <%= partial(:entry, :collection => @buried_entries) %>
                             </tbody>
                         </table>
                     <% end %>

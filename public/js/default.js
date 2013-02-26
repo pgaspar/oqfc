@@ -22,7 +22,7 @@ jQuery(function ($) {
     var opening = !$(this).hasClass("open");
 
     if (opening) {  // Do Open
-      $("#burried-entries").show();
+      $("#buried-entries").show();
       $(this).addClass("open");
       icon.addClass("icon-caret-up");
       icon.removeClass("icon-caret-down");
@@ -32,9 +32,9 @@ jQuery(function ($) {
       $(this).removeClass("open");
       icon.addClass("icon-caret-down");
       icon.removeClass("icon-caret-up");
-      
+
       $("html,body").animate({ scrollTop: $("#separator").offset().top + 30 - $(window).height()  }, 'medium', function() {
-        $("#burried-entries").hide();  
+        $("#buried-entries").hide();
       });
     }
   });

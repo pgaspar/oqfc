@@ -71,9 +71,10 @@ a, a:hover {
 }
 #suggestions table {
 	table-layout: fixed;
+	border-collapse: separate;
 }
 #suggestions td {
-	border-color: lightBlue;
+	border-color: rgba(255,255,255,0.25);
 }
 #suggestions .suggestion-text {
 	width: inherit;
@@ -171,20 +172,20 @@ button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
 	position: relative;
 	margin-bottom: 30px;
 	padding: 0px 10px;
-	background-color: lightBlue;
+	background-color: rgba(255,255,255,0.25);
 }
 #separator > div {
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: -10px;
-	
+
 	text-align: center;
 }
 #separator > div > span {
 	background-color: #80d2f1;
 	cursor: pointer;
-	color: rgba(0,0,0,0.8);
+	color: rgba(0,0,0,0.7);
 	font-size: 13px;
 	padding: 0px 10px;
 }
@@ -194,10 +195,10 @@ button.btn-success i.icon-caret-up, button.btn-danger i.icon-caret-down {
 #separator > div:hover {
 	text-decoration: underline;
 }
-#burried-entries {
+#buried-entries {
 	display: none;
 }
-#burried-entries tr:first-child td {
+#buried-entries tr:first-child td {
 	border-top: none;
 }
 .sorting {

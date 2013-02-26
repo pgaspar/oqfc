@@ -1,7 +1,6 @@
 source :gemcutter
 gem 'sinatra'
 gem 'data_mapper'
-gem 'dm-sqlite-adapter', :group => :development
 gem 'escape_utils'
 gem 'sinatra-contrib'
 gem 'sinatra-basic-auth'
@@ -10,6 +9,10 @@ gem 'dm-validations'
 gem 'dm-constraints'
 gem 'dm-types'
 gem 'sinatra-partial'
+
+group :development do
+  gem 'dm-sqlite-adapter'
+end
 
 group :production do
   gem 'pg'

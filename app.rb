@@ -1,83 +1,17 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
 require 'sinatra/partial'
 require 'escape_utils'
 require 'sinatra/basic_auth'
 require 'sinatra/content_for'
 
-# Config
-
-use Rack::Session::Cookie
-
-configure do
-  set :block_repeated_votes, (ENV['BLOCK_REPEAT'] != "false") if production?
-  set :block_repeated_votes, true unless production?
+if development?
+  require 'sinatra/reloader'
+  also_reload './config/config.rb'
+  also_reload './models.rb'
 end
 
-set :partial_template_engine, :erb
-enable :partial_underscores
-
-authorize do |username, password|
-  username == "admin" && password == "cfqoOQFC!!"
-end
-
-# Database
-
-require 'data_mapper'
-require 'dm-pager'
-require 'dm-validations'
-require 'dm-constraints'
-require 'dm-types'
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.db")
-
-class Entry
-  include DataMapper::Resource
-
-  property :id,           Serial
-  property :text,         Text, :length => 1..300
-  
-  property :vote_count,      Integer, :default => 0
-  property :up_vote_count,   Integer, :default => 0
-  property :down_vote_count, Integer, :default => 0
-  property :vote_score,      Integer, :default => 0, :index => true
-
-  property :ips,          Json, :default => []
-
-  property :created_at,   DateTime, :index => true
-  property :update_at,    DateTime
-
-  def vote(ip, up=true)
-    return if already_voted?(ip)
-    self.vote_count      += 1
-    self.up_vote_count   += 1 if up
-    self.down_vote_count += 1 unless up
-    self.vote_score      = self.up_vote_count - self.down_vote_count
-    self.ips << ip
-    self.save
-  end
-
-  def already_voted?(ip)
-    (settings.block_repeated_votes? && self.ips.count(ip) != 0)
-  end
-
-end
-
-#class Vote
-#  include DataMapper::Resource
-#
-#  property :id,           Serial
-#  property :ip,           String, :index => true
-#  property :up,           Boolean, :default => true
-#
-#  property :created_at,   DateTime
-#  property :update_at,    DateTime
-#
-#  belongs_to :entry
-#end
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require './config/config.rb'
+require './models.rb'
 
 # Filters
 
@@ -99,7 +33,7 @@ get '/' do
     @entries = Entry.all(:order => @dm_order)
   else
     @entries = Entry.all(:vote_score.gte => 0, :order => @dm_order)
-    @burried_entries = Entry.all(:vote_score.lt => 0, :order => @dm_order)
+    @buried_entries = Entry.all(:vote_score.lt => 0, :order => @dm_order)
   end
   erb :index
 end
