@@ -40,3 +40,5 @@ Deployment
 -------------
 
 The app is ready for deployment in [Heroku](http://heroku.com). [Troubleshoot here](https://devcenter.heroku.com/articles/rack#sinatra).
+
+Note: You may need to remove the `config/config.rb` line from `.gitignore` so your configuration is sent to Heroku.
