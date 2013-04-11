@@ -32,7 +32,7 @@ Configure the app
 
 Run the server
 
-    ruby -r app.rb
+    ruby app.rb
 
 Go to [http://127.0.0.1:4567](http://127.0.0.1:4567)
 
