@@ -5,7 +5,7 @@ How does it work?
 ---------------------
 
 * Sinatra app
-* Running on Ruby 1.8.7-p371 up to 1.9.3
+* Running on Ruby 1.8.7 up to 1.9.3
 
 Setup
 ------
@@ -56,6 +56,6 @@ You may also want to:
 Deployment
 -------------
 
-The app is ready for deployment in [Heroku](http://heroku.com). [Troubleshoot here](https://devcenter.heroku.com/articles/rack#sinatra).
+The app is ready for deployment in [Heroku](http://heroku.com). [Troubleshoot here](https://devcenter.heroku.com/articles/rack#sinatra) | [Custom Domains](https://devcenter.heroku.com/articles/custom-domains).
 
 Note: You need to remove the `config/config.rb` line from `.gitignore` so your configuration is sent to Heroku.
