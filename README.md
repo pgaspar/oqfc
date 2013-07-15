@@ -36,9 +36,26 @@ Run the server
 
 Go to [http://127.0.0.1:4567](http://127.0.0.1:4567)
 
+Customization
+-------------
+
+App global settings are available on your `config/config.rb`. Here you can change the city name and background color, among other things.
+
+For the Facebook Comments plugin to work you'll need to:
+
+* [create a Facebook App](https://developers.facebook.com/apps)
+* make sure the `:site_url` setting corresponds to the Site URL and App Domains settings on your Facebook App configuration
+* set your Facebook App ID in the `:fb_app_id` setting
+
+You may also want to:
+
+* change `public/img/favicon.png` to your own color
+* change `public/img/logo.png` (this image is used by Facebook when sharing)
+* customize the Facebook sharing text via the `:meta_description` setting
+
 Deployment
 -------------
 
 The app is ready for deployment in [Heroku](http://heroku.com). [Troubleshoot here](https://devcenter.heroku.com/articles/rack#sinatra).
 
-Note: You may need to remove the `config/config.rb` line from `.gitignore` so your configuration is sent to Heroku.
+Note: You need to remove the `config/config.rb` line from `.gitignore` so your configuration is sent to Heroku.
