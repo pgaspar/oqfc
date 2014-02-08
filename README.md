@@ -63,4 +63,4 @@ Note: You need to remove the `config/config.rb` line from `.gitignore` so your c
 Contributing
 -------------
 
-Fork, create a topic branch, change the code and create a [https://help.github.com/articles/using-pull-requests](Pull Request). Thanks!
+Fork, create a topic branch, change the code and create a [Pull Request](https://help.github.com/articles/using-pull-requests). Thanks!
