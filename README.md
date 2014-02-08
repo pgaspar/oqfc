@@ -59,3 +59,8 @@ Deployment
 The app is ready for deployment in [Heroku](http://heroku.com). [Troubleshoot here](https://devcenter.heroku.com/articles/rack#sinatra) | [Custom Domains](https://devcenter.heroku.com/articles/custom-domains).
 
 Note: You need to remove the `config/config.rb` line from `.gitignore` so your configuration is sent to Heroku.
+
+Contributing
+-------------
+
+Fork, create a topic branch, change the code and create a [https://help.github.com/articles/using-pull-requests](Pull Request). Thanks!
