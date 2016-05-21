@@ -29,6 +29,8 @@ ratings:
   - "**.php"
   - "**.py"
   - "**.rb"
+  - "**.erb"
+  - "**.rake"
 exclude_paths:
 - config/
 - "**.min.js"
