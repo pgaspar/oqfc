@@ -31,3 +31,5 @@ ratings:
   - "**.rb"
 exclude_paths:
 - config/
+- "**.min.js"
+- "**.min.css"
