@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/pgaspar/oqfc/badges/gpa.svg)](https://codeclimate.com/github/pgaspar/oqfc)
+
 This is the source code behind the "[O que falta em Coimbra?](http://oquefaltaemcoimbra.pt/)" concept.
 Make sure you check out the [Usage Guidelines](http://oquefaltaemcoimbra.pt/about).
 
