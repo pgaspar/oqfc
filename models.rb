@@ -12,14 +12,14 @@ class Entry
   include DataMapper::Resource
 
   property :id,           Serial
-  property :text,         Text, :length => 1..300
+  property :text,         Text, :length => 1..300, lazy: false
 
   property :vote_count,      Integer, :default => 0
   property :up_vote_count,   Integer, :default => 0
   property :down_vote_count, Integer, :default => 0
   property :vote_score,      Integer, :default => 0, :index => true
 
-  property :ips,          Json, :default => []
+  property :ips,          Json, :default => [], lazy: false
 
   property :created_at,   DateTime, :index => true
   property :update_at,    DateTime
