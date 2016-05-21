@@ -35,7 +35,7 @@ class Entry
   end
 
   def already_voted?(ip)
-    (settings.block_repeated_votes? && self.ips.count(ip) != 0)
+    (Sinatra::Application.settings.block_repeated_votes? && self.ips.count(ip) != 0)
   end
 
 end
