@@ -9,23 +9,21 @@ task :restore do
     score = score_str.to_i
     down_votes = (total_votes - score) / 2
     up_votes = (total_votes - down_votes)
-    date = DateTime.strptime(date_str, "%d/%m/%Y")
+    date = DateTime.strptime(date_str, '%d/%m/%Y')
 
     puts id_str
-    #puts date.strftime("%d/%m/%Y")
+    # puts date.strftime("%d/%m/%Y")
 
-    res = Entry.create(:id => id_str, 
-                       :text => text,
-                       :created_at => date,
-                       :vote_count => total_votes,
-                       :up_vote_count => up_votes,
-                       :down_vote_count => down_votes,
-                       :vote_score => score)
+    res = Entry.create(id: id_str,
+                       text: text,
+                       created_at: date,
+                       vote_count: total_votes,
+                       up_vote_count: up_votes,
+                       down_vote_count: down_votes,
+                       vote_score: score)
 
-    unless res
-      puts ">> #{res.errors.full_messages}"
-    end
+    puts ">> #{res.errors.full_messages}" unless res
   end
 
-  puts "DONE"
+  puts 'DONE'
 end

@@ -14,7 +14,7 @@
                 <% end %>
               </div>
               <div  id="entry-votes" class="suggestion-votes">
-                <%= partial(:vote_box, :locals => { :entry => @entry, :entry_page => true }) %>
+                <%= partial(:vote_box, locals: { entry: @entry, entry_page: true }) %>
               </div>
                 <hr>
                 <div class="fb-comments" data-href="<%= settings.site_url %>/entry/<%= @entry.id %>" data-num-posts="15" data-mobile="false"></div>

@@ -28,7 +28,7 @@
                     </div>
                     <table class="table">
                         <tbody>
-                            <%= partial(:entry, :collection => @entries, :locals => {:show_date => (session[:order] == "recent")}) %>
+                            <%= partial(:entry, collection: @entries, locals: { show_date: (session[:order] == "recent") }) %>
                         </tbody>
                     </table>
 
@@ -39,7 +39,7 @@
 
                         <table class="table" id="buried-entries">
                             <tbody>
-                                <%= partial(:entry, :collection => @buried_entries) %>
+                                <%= partial(:entry, collection: @buried_entries) %>
                             </tbody>
                         </table>
                     <% end %>

@@ -33,16 +33,16 @@ end
 
 get '/' do
   if session[:order] == 'recent'
-    @entries = Entry.all(:order => @dm_order)
+    @entries = Entry.all(order: @dm_order)
   else
-    @entries = Entry.all(:vote_score.gte => 0, :order => @dm_order)
-    @buried_entries = Entry.all(:vote_score.lt => 0, :order => @dm_order)
+    @entries = Entry.all(:vote_score.gte => 0, order: @dm_order)
+    @buried_entries = Entry.all(:vote_score.lt => 0, order: @dm_order)
   end
   erb :index
 end
 
 post '/create_entry' do
-  entry = Entry.create(:text => EscapeUtils.escape_html(params[:suggestion]))
+  entry = Entry.create(text: EscapeUtils.escape_html(params[:suggestion]))
   redirect back unless entry.saved?
 
   entry.vote(request.ip)
@@ -67,21 +67,23 @@ end
 # Dashboard
 
 protect do
-
   get '/dash' do
-    @entries = Entry.page(params[:page], :per_page => 15, :order => [ ((params[:order].nil? || params[:order].empty?) ? :vote_score : params[:order].to_sym).desc, :created_at.desc ])
-    erb :dash, :layout => false
+    @entries = Entry.page(
+      params[:page],
+      per_page: 15,
+      order: [((params[:order].nil? || params[:order].empty?) ? :vote_score : params[:order].to_sym).desc, :created_at.desc]
+    )
+    erb :dash, layout: false
   end
 
   post '/dash/remove_entry' do
     Entry.get!(params[:entry_id]).destroy rescue halt(404)
     redirect to "/dash?order=#{params[:order]}&page=#{params[:page]}"
   end
-
 end
 
 # Errors
 
 not_found do
-  "<h1>Not Found.</h1>"
+  '<h1>Not Found.</h1>'
 end
