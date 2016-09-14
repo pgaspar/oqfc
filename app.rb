@@ -64,6 +64,12 @@ get '/entry/:id' do
   erb :entry
 end
 
+#Getting Votes
+get '/:id/vote_score' do
+  @entry = Entry.get!(params[:id]) rescue halt(404)
+  return @entry[:vote_score].to_s
+end
+
 # Dashboard
 
 protect do
