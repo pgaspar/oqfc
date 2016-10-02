@@ -4,14 +4,17 @@
         const id =  $(this).parent().attr("value");
         const up = $(this).attr("value");
         const curr = $(this);
-        $.post("/vote?entry_id=" + id + "&up=" + up, function(){
-                $.get("/" + id + "/vote_score", function(data){
-                    $("#vote_score_" + id).html(data);
-                    curr
-                        .siblings().andSelf()
-                        .prop("disabled","true");
-                })
+        let ext = $("<div></div>");
+
+        $.ajax({
+          type:"POST",
+          url:"/vote",
+          data: "entry_id=" + id + "&up=" + up,
+          success: function(response){
+            ext.html(response);
+            $("#suggestion-" + id + " .suggestion-votes").html($("#suggestion-" + id + " .suggestion-votes", ext).html());
+          }
         })
+
     })
 })
-    

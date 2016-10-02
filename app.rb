@@ -42,7 +42,7 @@ get '/' do
 end
 
 post '/create_entry' do
-  entry = Entry.create(text: EscapeUtils.escape_html(params[:suggestion]))
+  @entry = Entry.create(text: EscapeUtils.escape_html(params[:suggestion]))
   redirect back unless entry.saved?
 
   entry.vote(request.ip)
@@ -52,9 +52,11 @@ end
 post '/vote' do
   entry = Entry.get!(params[:entry_id]) rescue halt(404)
   entry.vote(request.ip, params[:up] != 'false')
+
   if params[:vote_page]
     redirect to "/entry/#{entry.id}"
   else
+  #Questionable case
     redirect to "/#suggestion-#{entry.id}"
   end
 end
@@ -62,12 +64,6 @@ end
 get '/entry/:id' do
   @entry = Entry.get!(params[:id]) rescue halt(404)
   erb :entry
-end
-
-#Getting Votes
-get '/:id/vote_score' do
-  @entry = Entry.get!(params[:id]) rescue halt(404)
-  return @entry[:vote_score].to_s
 end
 
 # Dashboard
