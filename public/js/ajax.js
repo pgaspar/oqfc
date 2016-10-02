@@ -1,22 +1,18 @@
- $(document).ready(function() {
-    $("#bt-dw,#bt-up").click(function (event) {
-        const vote_page = $(this).parent().parent().attr("value");
-        event.preventDefault();
+jQuery(function ($) {
 
-        const id =  $(this).parent().attr("value");
-        const up = $(this).attr("value");
-        const curr = $(this);
-        let ext = $("<div></div>");
+  $(document).on("click", "#bt-dw, #bt-up", function(event) {
+    event.preventDefault();
+    const vote_page = $(this).closest(".suggestion-votes").data("vote-page");
+    const id = $(this).closest(".btn-group").data("entry-id");
+    const up = $(this).attr("value");
 
-        $.post("/vote","entry_id=" + id + "&up=" + up,function(response){
-            ext.html(response);
-            console.log("response: " + response);
-            if(vote_page=="false") {
-              $("#suggestion-" + id + " .suggestion-votes").html(response);
-            } else {
-              $(".suggestion-votes").html(response);
-            }
-          }
-        )
+    $.post("/vote", {entry_id: id, up: up},function(response){
+      if(!vote_page) {
+        $("#suggestion-" + id + " .suggestion-votes").html(response);
+      } else {
+        $(".suggestion-votes").html(response);
+      }
     })
+  })
+
 })

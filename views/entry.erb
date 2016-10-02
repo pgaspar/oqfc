@@ -13,7 +13,7 @@
                   <p><small>Sugerido em <%= @entry.created_at.strftime("%d/%m/%Y") %></small></p>
                 <% end %>
               </div>
-              <div  id="entry-votes" class="suggestion-votes" value="true">
+              <div  id="entry-votes" class="suggestion-votes" data-vote-page="true">
                 <%= partial(:vote_box, locals: { entry: @entry}) %>
               </div>
                 <hr>
