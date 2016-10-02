@@ -42,7 +42,7 @@ get '/' do
 end
 
 post '/create_entry' do
-  @entry = Entry.create(text: EscapeUtils.escape_html(params[:suggestion]))
+  entry = Entry.create(text: EscapeUtils.escape_html(params[:suggestion]))
   redirect back unless entry.saved?
 
   entry.vote(request.ip)
