@@ -53,7 +53,7 @@ post '/vote' do
   entry = Entry.get!(params[:entry_id]) rescue halt(404)
   entry.vote(request.ip, params[:up] != 'false')
 
-  redirect back
+  partial(:vote_box, locals: { entry: entry})
 end
 
 get '/entry/:id' do

@@ -10,10 +10,11 @@
 
         $.post("/vote","entry_id=" + id + "&up=" + up,function(response){
             ext.html(response);
+            console.log("response: " + response);
             if(vote_page=="false") {
-              $("#suggestion-" + id + " .suggestion-votes").html($("#suggestion-" + id + " .suggestion-votes", ext).html());
+              $("#suggestion-" + id + " .suggestion-votes").html(response);
             } else {
-              $(".suggestion-votes").html($(".suggestion-votes", ext).html());
+              $(".suggestion-votes").html(response);
             }
           }
         )
