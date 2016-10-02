@@ -6,15 +6,10 @@
         const curr = $(this);
         let ext = $("<div></div>");
 
-        $.ajax({
-          type:"POST",
-          url:"/vote",
-          data: "entry_id=" + id + "&up=" + up,
-          success: function(response){
+        $.post("/vote","entry_id=" + id + "&up=" + up,function(response){
             ext.html(response);
             $("#suggestion-" + id + " .suggestion-votes").html($("#suggestion-" + id + " .suggestion-votes", ext).html());
           }
-        })
-
+        )
     })
 })
