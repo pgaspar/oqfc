@@ -6,7 +6,7 @@
           <% if show_date and entry.created_at %><small> • sugerido em <%= entry.created_at.strftime("%d/%m/%Y") %></small><% end %>
         </p>
     </td>
-    <td class="suggestion-votes">
-        <%= partial(:vote_box, locals: { entry: entry, entry_page: false }) %>
+    <td class="suggestion-votes" value="false">
+        <%= partial(:vote_box, locals: { entry: entry }) %>
     </td>
 </tr>

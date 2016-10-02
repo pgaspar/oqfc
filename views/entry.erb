@@ -13,8 +13,8 @@
                   <p><small>Sugerido em <%= @entry.created_at.strftime("%d/%m/%Y") %></small></p>
                 <% end %>
               </div>
-              <div  id="entry-votes" class="suggestion-votes">
-                <%= partial(:vote_box, locals: { entry: @entry, entry_page: true }) %>
+              <div  id="entry-votes" class="suggestion-votes" value="true">
+                <%= partial(:vote_box, locals: { entry: @entry}) %>
               </div>
                 <hr>
                 <div class="fb-comments" data-href="<%= settings.site_url %>/entry/<%= @entry.id %>" data-num-posts="15" data-mobile="false"></div>

@@ -53,12 +53,7 @@ post '/vote' do
   entry = Entry.get!(params[:entry_id]) rescue halt(404)
   entry.vote(request.ip, params[:up] != 'false')
 
-  if params[:vote_page]
-    redirect to "/entry/#{entry.id}"
-  else
-  #Questionable case
-    redirect to "/#suggestion-#{entry.id}"
-  end
+  redirect back
 end
 
 get '/entry/:id' do
