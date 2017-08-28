@@ -21,7 +21,6 @@
 
   </head>
   <body>
-
     <a href="/dash"><h1>OQFC Dashboard</h1></a>
 
     <table class="table table-condensed table-hover">
@@ -59,6 +58,5 @@
     </table>
 
     <%= @entries.pager.to_html("/dash?order=#{params[:order]}") %>
-
   </body>
 </html>

@@ -1,5 +1,5 @@
 <span id="vote_score_<%= entry.id %>" title="Baseado em <%= entry.vote_count %> voto<%= 's' if entry.vote_count != 1 %>." ><%= entry.vote_score %></span><br/>
 <div class="btn-group" data-entry-id="<%= entry.id %>">
-    <button id="bt-up" value="true" class="btn btn-mini <%# 'btn-success' if entry.voted_up?(request.ip) %>" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> ><i class="icon-caret-up"></i></button>
-    <button id="bt-dw" value="false" class="btn btn-mini <%# 'btn-danger' if entry.voted_down?(request.ip) %>" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> ><i class="icon-caret-down"></i></button>
+  <button id="bt-up" value="true" class="btn btn-mini <%# 'btn-success' if entry.voted_up?(request.ip) %>" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> ><i class="icon-caret-up"></i></button>
+  <button id="bt-dw" value="false" class="btn btn-mini <%# 'btn-danger' if entry.voted_down?(request.ip) %>" <%= 'disabled title="Obrigado pelo teu voto!"' if entry.already_voted?(request.ip) %> ><i class="icon-caret-down"></i></button>
 </div>

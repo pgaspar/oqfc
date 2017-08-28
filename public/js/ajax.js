@@ -12,7 +12,7 @@ jQuery(function ($) {
       } else {
         $(".suggestion-votes").html(response);
       }
-    })
-  })
+    });
+  });
 
-})
+});

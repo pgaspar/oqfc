@@ -2,24 +2,23 @@
 
 <a href="/" class="btn btn-fixed"><i class="icon-chevron-left"></i>&nbsp;&nbsp;Outras sugestões</a>
 <div class="hero-unit" style="background-color: <%= settings.background_color %>">
-    <div class="hero-unit-outer">
-        <div class="hero-unit-inner">
-            <h1><a href="/">O que falta <%= settings.city_name %>?</a></h1>
+  <div class="hero-unit-outer">
+    <div class="hero-unit-inner">
+      <h1><a href="/">O que falta <%= settings.city_name %>?</a></h1>
 
-            <div id="entry" class="container">
-              <div id="entry-text">
-                <h2><%= @entry.text %></h2>
-                <% if @entry.created_at %>
-                  <p><small>Sugerido em <%= @entry.created_at.strftime("%d/%m/%Y") %></small></p>
-                <% end %>
-              </div>
-              <div  id="entry-votes" class="suggestion-votes" data-vote-page="true">
-                <%= partial(:vote_box, locals: { entry: @entry}) %>
-              </div>
-                <hr>
-                <div class="fb-comments" data-href="<%= settings.site_url %>/entry/<%= @entry.id %>" data-num-posts="15" data-mobile="false"></div>
-            </div>
-
+      <div id="entry" class="container">
+        <div id="entry-text">
+          <h2><%= @entry.text %></h2>
+          <% if @entry.created_at %>
+            <p><small>Sugerido em <%= @entry.created_at.strftime("%d/%m/%Y") %></small></p>
+          <% end %>
         </div>
+        <div  id="entry-votes" class="suggestion-votes" data-vote-page="true">
+          <%= partial(:vote_box, locals: { entry: @entry}) %>
+        </div>
+        <hr>
+        <div class="fb-comments" data-href="<%= settings.site_url %>/entry/<%= @entry.id %>" data-num-posts="15" data-mobile="false"></div>
+      </div>
     </div>
+  </div>
 </div>

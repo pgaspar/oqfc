@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task :restore do
   txt = open('tasks/oqfc.html').read
   regex = /"\/entry\/(\d+)">([^<]+)<.*\n.*\n.*\n.*<small>.+(\d\d\/\d\d\/\d{4}).*\n.*\n.*\n.*\n.+Baseado em (\d{1,3}) votos.">(-?\d{1,3})/i

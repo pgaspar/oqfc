@@ -1,12 +1,12 @@
 <% show_date ||= false %>
 <tr id="suggestion-<%= entry.id %>">
-    <td class="suggestion-text"><h2><a href="/entry/<%= entry.id %>"><%= entry.text %></a></h2>
-        <p class="comment-count">
-          <small><span class="fb-comments-count" data-href="<%= settings.site_url %>/entry/<%= entry.id %>">0</span> <span class="cm-label">comentários</span></small>
-          <% if show_date and entry.created_at %><small> • sugerido em <%= entry.created_at.strftime("%d/%m/%Y") %></small><% end %>
-        </p>
-    </td>
-    <td class="suggestion-votes">
-        <%= partial(:vote_box, locals: { entry: entry }) %>
-    </td>
+  <td class="suggestion-text"><h2><a href="/entry/<%= entry.id %>"><%= entry.text %></a></h2>
+    <p class="comment-count">
+      <small><span class="fb-comments-count" data-href="<%= settings.site_url %>/entry/<%= entry.id %>">0</span> <span class="cm-label">comentários</span></small>
+      <% if show_date and entry.created_at %><small> • sugerido em <%= entry.created_at.strftime("%d/%m/%Y") %></small><% end %>
+    </p>
+  </td>
+  <td class="suggestion-votes">
+    <%= partial(:vote_box, locals: { entry: entry }) %>
+  </td>
 </tr>

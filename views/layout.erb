@@ -8,7 +8,7 @@
     <meta name="description" content="<%= @page_desc || settings.meta_description %>">
     <meta name="keywords" content="<%= settings.meta_keywords %>" />
     <meta name="robots" content="index,follow" />
-    <meta property="og:image" content="<%= settings.site_url %>/img/logo.png"/>
+    <meta property="og:image" content="<%= settings.site_url %>/img/logo.png" />
 
     <!-- CSS -->
     <link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
@@ -32,7 +32,7 @@
     <link href='//fonts.googleapis.com/css?family=Amaranth:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Facebook Comments Stuff -->
-    <meta property="fb:app_id" content="<%= settings.fb_app_id %>"/>
+    <meta property="fb:app_id" content="<%= settings.fb_app_id %>" />
 
     <!-- Google Analytics -->
 
@@ -56,23 +56,23 @@
 
     <div id="fb-root"></div>
     <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '<%= settings.fb_app_id %>',
-        xfbml      : true,
-        version    : 'v2.10'
-      });
-      FB.AppEvents.logPageView();
-    };
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<%= settings.fb_app_id %>',
+          xfbml      : true,
+          version    : 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+      };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <%= yield %>
   </body>

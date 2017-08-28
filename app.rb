@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 
@@ -53,7 +55,7 @@ post '/vote' do
   entry = Entry.get!(params[:entry_id]) rescue halt(404)
   entry.vote(request.ip, params[:up] != 'false')
 
-  partial(:vote_box, locals: { entry: entry})
+  partial(:vote_box, locals: { entry: entry })
 end
 
 get '/entry/:id' do
