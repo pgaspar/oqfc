@@ -7,14 +7,14 @@ How does it work?
 ---------------------
 
 * Sinatra app
-* Running on Ruby 1.8.7 up to 2.2.3 (and probably higher)
+* Running on Ruby 2.3.1
 
 Setup
 ------
 
-Install Ruby 2.2.3 (if necessary). RVM is optional, but highly recommended.
+Install Ruby 2.3.1 (if necessary). RVM is optional, but highly recommended.
 
-    rvm install ruby-2.2.3-p173
+    rvm install ruby 2.3.1p112
     git clone https://github.com/pgaspar/oqfc.git
     cd oqfc
 
